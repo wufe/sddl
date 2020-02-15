@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package services;
+option csharp_namespace = "SDDL.Communication.GRPC";
+
+service Enqueue {
+    rpc EnqueueDownload(DownloadInputValueObject) returns (DownloadOutputEntityModel) {};
+    rpc ListenDownloadHooks(ListenHooksInputValueObject) returns (stream DownloadHookEvent) {};
+    rpc Log(LogInputValueObject) returns (LogOutputValueObject) {};
+    rpc ListenLog(ListenLogInputValueObject) returns (stream LogInputValueObject) {};
+}
+
+message DownloadInputValueObject {
+    string url     = 1;
+    int32  retries = 2;
+}
+
+message DownloadOutputEntityModel {
+    int64          id      = 1;
+    string         uuid    = 2;
+    string         url     = 3;
+    int32          retries = 4;
+    DownloadStatus status  = 5;
+}
+
+enum DownloadStatus {
+    IDLE         = 0;
+    ACKNOWLEDGED = 1;
+}
+
+message ListenHooksInputValueObject{}
+
+message DownloadHookEvent {
+    HookEventType             type     = 1;
+    DownloadOutputEntityModel download = 2;
+}
+
+enum HookEventType {
+    UNDEFINED = 0;
+    START     = 1;
+    RETRY     = 2;
+    STOP      = 3;
+    ABORT     = 4;
+}
+
+message LogInputValueObject {
+    string  message = 1;
+    LogType type    = 2;
+    Sender  sender  = 3;
+}
+
+message Sender {
+    string name = 1;
+    string signature = 2;
+}
+
+enum LogType {
+    TRACE       = 0;
+    DEBUG       = 1;
+    INFORMATION = 2;
+    WARNING     = 3;
+    ERROR       = 4;
+    CRITICAL    = 5;
+}
+
+message LogOutputValueObject {}
+
+message ListenLogInputValueObject {}

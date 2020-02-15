@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Automapper" Version="9.0.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.11.3" />
+    <PackageReference Include="Grpc" Version="2.27.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.27.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProtoBuf Include="../../Contracts/Services/enqueue.proto" Link="Contracts/Protos/enqueue.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\SDDL.Domain.Service\SDDL.Domain.Service.csproj" />
+    <ProjectReference Include="..\..\Domain\SDDL.Domain.Model\SDDL.Domain.Model.csproj" />
+  </ItemGroup>
+
+</Project>
