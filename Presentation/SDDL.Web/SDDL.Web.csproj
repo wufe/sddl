@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
-    <ProjectReference Include="..\SDDL.Web.Integration\SDDL.Web.Integration.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\SDDL.Infrastructure.Configuration\SDDL.Infrastructure.Configuration.csproj" />
   </ItemGroup>
 
   <ItemGroup>

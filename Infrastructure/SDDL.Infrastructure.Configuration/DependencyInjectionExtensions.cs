@@ -4,7 +4,7 @@ using SDDL.Communication.GRPC.Configuration;
 using SDDL.Database.EFCore;
 using SDDL.Repository.EFCore.Configuration;
 
-namespace SDDL.Web.Integration
+namespace SDDL.Infrastructure.Configuration
 {
     public static class DependencyInjectionExtensions
     {

@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\SDDL.Database.EFCore\SDDL.Database.EFCore.csproj" />
+    <ProjectReference Include="..\..\Data\SDDL.Repository.Interface\SDDL.Repository.Interface.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\SDDL.Repository.EFCore\SDDL.Repository.EFCore.csproj" />
+    <ProjectReference Include="..\..\Domain\SDDL.Domain.Service\SDDL.Domain.Service.csproj" />
+    <ProjectReference Include="..\..\Domain\SDDL.Domain.Model\SDDL.Domain.Model.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\SDDL.Communication.GRPC\SDDL.Communication.GRPC.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Automapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.1" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>
