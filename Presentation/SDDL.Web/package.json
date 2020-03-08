@@ -17,14 +17,17 @@
   "devDependencies": {
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
+    "@wufe/neui": "^1.0.1",
     "core-js": "^3.6.4",
     "cross-env": "^7.0.0",
+    "nord": "^0.2.1",
     "npm-run-all": "^4.1.5",
     "parcel": "^1.12.4",
     "posthtml-expressions": "^1.1.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "regenerator-runtime": "^0.13.3",
+    "sass": "^1.26.2",
     "typescript": "^3.7.5"
   }
 }
