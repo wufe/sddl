@@ -1,0 +1,111 @@
+@import "~/style/index.scss";
+
+.downloads-container__component {
+    display: flex;
+    flex-direction: column;
+
+    > .__header {
+        align-self: flex-end;
+
+        border-radius: 8px;
+        padding: 10px 20px;
+
+        > .__header-title {
+            text-transform: uppercase;
+            color: $nord3;
+            font-size: .9em;
+            margin: 5px 0 10px 0;
+        }
+
+        > .__header-content {
+            margin: 5px 0 5px 0;
+
+            > button {
+                @include neui-button($primary-color, 'convex');
+                margin: 0 5px;
+                border-radius: 8px;
+
+                &.--active {
+                    @include neui-button($primary-color, 'pressed');
+                    border-radius: 8px;
+                    position: relative;
+
+                    &::after {
+                        content: ' ';
+                        position: absolute;
+                        bottom: 5px;
+                        right: 15px;
+                        left: 15px;
+                        height: 1px;
+                    }
+                }
+
+                &.--success {
+                    &::after {
+                        background-color: $nord14;
+                    }
+                }
+            }
+        }
+    }
+    
+    > .__list {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        padding: 30px;
+        border-radius: 20px;
+        padding: 10px;
+
+        > .download {
+            @include neui-box($accent-color, 'flat');
+            margin: 8px 0;
+            border-radius: 9px;
+            padding: 10px 20px;
+            font-size: .95em;
+            letter-spacing: .01em;
+            width: 100%;
+            height: 60px;
+            transition: height ease-in-out .2s;
+    
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            cursor: pointer;
+    
+            &:hover {
+                @include neumorphistic-element($accent-color, 'convex');
+                border-radius: 9px;
+            }
+    
+            &.--active, &:active {
+                @include neumorphistic-element($primary-color, 'pressed');
+                border-radius: 9px;
+            }
+    
+            &.--active {
+                height: 300px;
+            }
+    
+            > .__column {
+                > .__column-header {
+                    font-size: .8em;
+                    text-transform: uppercase;
+                    color: $nord3;
+                    margin: 2px 0 3px 0;
+                }
+
+                > .__column-content {
+                    &.--success {
+                        color: darken($nord14, 25%);
+                        font-weight: 300;
+                        text-shadow: 0 0 5px rgba(white, .1);//rgba(darken($nord14, 10%), .4);
+                    }
+                }
+            }
+        }
+    }
+    
+
+    
+}

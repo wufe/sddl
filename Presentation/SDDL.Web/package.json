@@ -17,7 +17,6 @@
   "devDependencies": {
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
-    "@wufe/neui": "^1.0.1",
     "core-js": "^3.6.4",
     "cross-env": "^7.0.0",
     "nord": "^0.2.1",
