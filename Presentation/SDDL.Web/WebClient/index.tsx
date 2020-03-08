@@ -4,5 +4,11 @@ import 'regenerator-runtime/runtime';
 import { render } from 'react-dom';
 import './style/index.scss';
 import { App } from './components/app/app';
+import { StoreProvider } from './state/store';
 
-render(<App />, document.getElementById("app"));
+render(
+    <React.StrictMode>
+        <StoreProvider>
+            <App />
+        </StoreProvider>
+    </React.StrictMode>, document.getElementById("app"));
