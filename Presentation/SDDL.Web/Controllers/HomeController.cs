@@ -24,6 +24,8 @@ namespace SDDL.Web.Controllers
             _spaService = spaService;
         }
 
+        [HttpGet("/")]
+        [HttpGet("/downloads")]
         public IActionResult Index()
         {
             return PhysicalFile(_spaService.GetIndexFilePath(), "text/html");

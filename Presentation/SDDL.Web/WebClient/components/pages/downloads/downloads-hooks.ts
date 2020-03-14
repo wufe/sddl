@@ -1,5 +1,5 @@
-import { useStore } from '../../state/hook';
-import { DownloadsAction, DownloadsFilter } from '../../state/downloads/downloads-state';
+import { useStore } from '../../../state/hook';
+import { DownloadsAction, DownloadsFilter } from '../../../state/downloads/downloads-state';
 
 export const useDownloads = () => {
     const {state, dispatch} = useStore();

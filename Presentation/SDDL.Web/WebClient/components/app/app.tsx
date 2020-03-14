@@ -1,9 +1,27 @@
 import * as React from 'react';
-import { Hello } from '../world/world';
 import './app.scss';
-import { DownloadsContainer } from '../downloads/downloads-container';
+import { DownloadsContainer } from '~/components/pages/downloads/downloads-container/downloads-container';
+import { Route, Link } from 'react-router-dom';
+import Downloads from '../pages/downloads/downloads';
+import loadable from '@loadable/component';
+import { ModalWrapper } from '../modal/modal-wrapper';
 
-export const App = () => <div className="app__component">
-    <h1 className="__header">Downloads</h1>
-    <DownloadsContainer />
-</div>;
+const DashboardPage = loadable(() => import('~/components/pages/dashboard/dashboard'));
+const DownloadsPage = loadable(() => import('~/components/pages/downloads/downloads'));
+
+export const App = () => 
+    <ModalWrapper>
+        <div className="app__component">
+            <div className="__menu">
+                <Link className="__menu-item" to="/">Dashboard</Link>
+                <Link className="__menu-item" to="/downloads">Downloads</Link>
+                <Link className="__menu-item" to="/plugins">Plugins</Link>
+            </div>
+            <Route exact path="/">
+                <DashboardPage />
+            </Route>
+            <Route path="/downloads">
+                <DownloadsPage />
+            </Route>
+        </div>
+    </ModalWrapper>;

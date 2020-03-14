@@ -10,27 +10,21 @@ html, body {
 
 * {
     box-sizing: border-box;
+    position: relative;
 }
 
 input {
     font-family: inherit;
 }
 
-%vertical-stretched {
-    display: flex;
-    justify-content: stretch;
-    align-items: stretch;
-    width: 100%;
-}
-
 body {
     background-color: $primary-color;
     min-height: 100vh;
-    @extend %vertical-stretched;
+    @extend %container-stretched;
 }
 
 #app {
-    @extend %vertical-stretched;
+    @extend %container-stretched;
 }
 
 .app__component {
@@ -38,8 +32,44 @@ body {
     @include container;
     padding: 20px 0;
 
+    > .__menu {
+        display: flex;
+        justify-content: flex-end;
+
+        > .__menu-item {
+            margin: 5px 10px;
+            position: relative;
+            text-decoration: none;
+            $color: $nord2;
+            color: $color;
+
+            cursor: pointer;
+
+            &::after {
+                content: ' ';
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                right: 0;
+                height: 1px;
+            }
+
+            &:hover {
+                &::after {
+                    box-shadow: 0 1px 0 rgba($nord3, 1);
+                }
+            }
+        }
+    }
+
     > .__header {
-        font-family: 'Montserrat Alternates';
-        font-weight: 200;
+        padding: 5px 20px;
+        display: flex;
+        justify-content: space-between;
+
+        > .__title {
+            font-family: 'Montserrat Alternates';
+            font-weight: 200;
+        }
     }
 }

@@ -1,0 +1,33 @@
+@import "~/style/index.scss";
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-wrapper__component {
+    @extend %container-stretched;
+    transition: filter ease-in-out .2s;
+
+    &.--blurred {
+        filter: blur(7px);
+    }
+}
+
+.modal-wrapper__container {
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    padding: 10px;
+    background: rgba(black, .2);
+    animation: fadeIn linear .2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
