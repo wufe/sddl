@@ -1,17 +1,13 @@
 import * as React from 'react';
-import { createPortal } from 'react-dom';
 import { useModal, modalContext } from './modal-hooks';
+import { ModalWrapper } from './modal-wrapper';
 
-export const Modal = ({ children }: React.PropsWithChildren<{}>) => {
+export const Modal = (props: React.PropsWithChildren<{ name: string }>) => {
 
-    const { setVisibility } = useModal();
-    const { node } = React.useContext(modalContext);
+    const { name } = useModal();
 
-    React.useEffect(() => {
-        setVisibility(true);
+    if (name !== props.name)
+        return null;
 
-        return () => setVisibility(false);
-    }, []);
-
-    return node ? createPortal(children, node) : null;
+    return <ModalWrapper>{props.children}</ModalWrapper>;
 }

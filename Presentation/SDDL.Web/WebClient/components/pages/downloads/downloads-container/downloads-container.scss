@@ -1,4 +1,4 @@
-@import "~/style/index.scss";
+@import "~/style/index";
 
 .downloads-container__component {
     display: flex;
@@ -47,12 +47,11 @@
                 }
 
                 button {
-                    @include neui-button($primary-color, 'convex');
+                    @extend %neui-button;
                     margin: 0 5px;
                     border-radius: 8px;
     
                     &.--active {
-                        @include neui-button($primary-color, 'pressed');
                         border-radius: 8px;
                         position: relative;
     
@@ -96,7 +95,7 @@
         padding: 10px;
 
         > .download {
-            @include neui-box($accent-color, 'flat');
+            @extend %neui-box;
             margin: 8px 0;
             border-radius: 9px;
             padding: 10px 20px;
@@ -107,12 +106,12 @@
             transition: height ease-in-out .2s;
 
             &:hover {
-                @include neumorphistic-element($accent-color, 'convex');
+                @include convex($accent-color);
                 border-radius: 9px;
             }
     
             &.--active, &:active {
-                @include neumorphistic-element($primary-color, 'pressed');
+                @include pressed($primary-color);
                 border-radius: 9px;
             }
     

@@ -10,11 +10,11 @@ export const DownloadsContainer = () => {
     const [active, setActive] = React.useState(false);
     
     const { activeFilter, setFilter } = useDownloads();
-    const { visible, setVisibility } = useModal();
+    const { visible, show } = useModal();
 
     return <div className="downloads-container__component">
 
-        {visible && <Modal>Ciccio</Modal>}
+        <Modal name="test-modal">Test</Modal>
 
         <div className="__header">
             
@@ -36,7 +36,7 @@ export const DownloadsContainer = () => {
                 <div className="__actions">
                     <div className="__title">Actions</div>
                     <div className="__content">
-                        <button onClick={() => setVisibility(true)}>New</button>
+                        <button onClick={_ => show('test-modal')}>New</button>
                     </div>
                 </div>
             </div>

@@ -4,13 +4,13 @@ import { DownloadsContainer } from '~/components/pages/downloads/downloads-conta
 import { Route, Link } from 'react-router-dom';
 import Downloads from '../pages/downloads/downloads';
 import loadable from '@loadable/component';
-import { ModalWrapper } from '../modal/modal-wrapper';
+import { AppWrapper } from '../modal/app-wrapper';
 
 const DashboardPage = loadable(() => import('~/components/pages/dashboard/dashboard'));
 const DownloadsPage = loadable(() => import('~/components/pages/downloads/downloads'));
 
 export const App = () => 
-    <ModalWrapper>
+    <AppWrapper>
         <div className="app__component">
             <div className="__menu">
                 <Link className="__menu-item" to="/">Dashboard</Link>
@@ -24,4 +24,4 @@ export const App = () =>
                 <DownloadsPage />
             </Route>
         </div>
-    </ModalWrapper>;
+    </AppWrapper>;

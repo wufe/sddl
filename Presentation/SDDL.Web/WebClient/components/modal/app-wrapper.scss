@@ -1,0 +1,19 @@
+@import "~/style/index";
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.app-wrapper__component {
+    @extend %container-stretched;
+    transition: filter ease-in-out .2s;
+
+    &.--blurred {
+        filter: blur(7px);
+    }
+}
