@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SDDL.Web.Extensions;
 
 namespace SDDL.Web
 {
@@ -23,6 +24,9 @@ namespace SDDL.Web
                     webBuilder
                         .UseUrls("http://*:8001")
                         .UseStartup<Startup>();
+                })
+                .ConfigureServices(services => {
+                    services.AddPresentationHostedServices();
                 });
     }
 }

@@ -24,13 +24,15 @@ func (server *EnqueueServerImpl) EnqueueDownload(ctx context.Context, inputModel
 		Status:  services.DownloadStatus_IDLE,
 	}
 	server.db.Create(download)
-	return &services.DownloadOutputEntityModel{
+	downloadOutputEntityModel := &services.DownloadOutputEntityModel{
 		Id:      int64(download.ID),
 		Uuid:    download.UUID,
 		Url:     download.URL,
 		Retries: download.Retries,
 		Status:  download.Status,
-	}, nil
+	}
+	server.BroadcastDownloadEvent(downloadOutputEntityModel, services.HookEventType_ADDED)
+	return downloadOutputEntityModel, nil
 }
 
 func (server *EnqueueServerImpl) ListenDownloadHooks(input *services.ListenHooksInputValueObject, stream services.Enqueue_ListenDownloadHooksServer) error {

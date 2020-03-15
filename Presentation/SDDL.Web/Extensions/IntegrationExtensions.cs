@@ -13,5 +13,9 @@ namespace SDDL.Web.Extensions {
             services
                 .AddScoped<ISpaService, SpaService>();
         }
+
+        public static void AddPresentationHostedServices(this IServiceCollection services) {
+            services.AddHostedService<HookListenerService>();
+        }
     }
 }

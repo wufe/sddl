@@ -6,6 +6,8 @@ namespace SDDL.Communication.GRPC.Configuration {
         public static void AddGRPCServices(this IServiceCollection services) {
             services
                 .AddScoped<IEnqueueService, EnqueueService>();
+            services
+                .AddScoped<EnqueueService>();
         }
     }
 }

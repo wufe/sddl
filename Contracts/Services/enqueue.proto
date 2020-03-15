@@ -41,6 +41,7 @@ enum HookEventType {
     RETRY     = 2;
     STOP      = 3;
     ABORT     = 4;
+    ADDED     = 5;
 }
 
 message LogInputValueObject {

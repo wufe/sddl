@@ -31,6 +31,7 @@ namespace SDDL.Web
             services.AddInfrastructure();
             services.AddAutomapperConfigurations();
             services.AddPresentationServices();
+            
             services.AddCors(options => {
                 options.AddPolicy(_allowDomainCorsPolicy, builder =>
                     builder.WithOrigins("http://localhost:8002", "https://sddl.bembi.dev")

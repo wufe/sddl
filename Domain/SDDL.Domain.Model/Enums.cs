@@ -3,4 +3,12 @@ namespace SDDL.Domain.Model {
         Idle = 0,
         Acknowledged = 1
     }
+
+    public enum HookEventType {
+        Undefined = 0,
+        Start = 1,
+        Retry = 2,
+        Stop = 3,
+        Abort = 4
+    }
 }
