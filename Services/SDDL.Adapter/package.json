@@ -22,6 +22,6 @@
     "start": "run-s build start:built"
   },
   "dependencies": {
-    "grpc": "^1.24.2"
+    "grpc": "^1.24.9"
   }
 }
